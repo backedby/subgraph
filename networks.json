@@ -1,0 +1,25 @@
+{
+  "matic": {
+    "BBProfiles": {
+      "address": "0xc026bA63d5221aAd8ea35Ea3EEedD6a6467B2791"
+    },
+    "BBPosts": {
+      "address": "0x2f9680e21da7550bdbfec53c55bfbe5d2f51b8cb"
+    },
+    "BBTiers": {
+      "address": "0xedb7c7ee76cc95dfada061921dd95e21b9d95609"
+    },
+    "BBSubscriptionFactory": {
+      "address": "0x3787ac1d56f2a5e5d1bfec2971dbd3f7847eeb19"
+    },
+    "BBSubscriptionsUSDC": {
+      "address": "0x654b5903544e7c1af996b98cc38da1a37684a1ae"
+    },
+    "BBSubscriptionsUSDT": {
+      "address": "0x495eb78a0b48077e0a097af07194636fc85dade4"
+    },
+    "BBSubscriptionsDAI": {
+      "address": "0x628ae6f0f30f1cf9dfb287b03d011cf855818c47"
+    }
+  }
+}

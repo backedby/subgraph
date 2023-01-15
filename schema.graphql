@@ -1,0 +1,39 @@
+type Profile @entity {
+  id: ID!
+  owner: Bytes!
+  receiver: Bytes!
+  cid: String!
+}
+
+type Post @entity {
+  id: ID!
+  profileId: BigInt!
+  cid: String!
+}
+
+type TierSet @entity {
+  id: ID!
+  profileId: BigInt!
+  tierSetId: BigInt!
+  prices: [BigInt!]
+  cids: [String!]
+  deprecated: [Boolean!]
+  supportedCurrencies: [Bytes!]
+  currencyMultipliers: [BigInt!]
+}
+
+type SubscriptionProfile @entity {
+  id: ID!
+  tierSetId: BigInt!
+  contribution: BigInt!
+}
+
+type SubscriptionEntity @entity {
+  id: ID!
+  profileId: BigInt!
+  tierId: BigInt!
+  subscriber: Bytes!
+  price: BigInt!
+  expiration: BigInt!
+  cancelled: Boolean!
+}

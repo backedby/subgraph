@@ -1,0 +1,168 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BBProfiles
+    network: matic
+    source:
+      address: "0x096741579bac68b4044bbb4966d390e51081c7dc"
+      abi: BBProfiles
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Profile
+      abis:
+        - name: BBProfiles
+          file: ./abis/BBProfiles.json
+      eventHandlers:
+        - event: EditProfile(uint256,address,address,string)
+          handler: handleEditProfile
+        - event: NewProfile(uint256,address,address,string)
+          handler: handleNewProfile
+      file: ./src/bb-profiles.ts
+  - kind: ethereum
+    name: BBPosts
+    network: matic
+    source:
+      address: "0x35bb26163e8ec8542863d270fd92927f562af1c6"
+      abi: BBPosts
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Post
+      abis:
+        - name: BBPosts
+          file: ./abis/BBPosts.json
+      eventHandlers:
+        - event: EditPost(uint256,uint256,string)
+          handler: handleEditPost
+        - event: NewPost(uint256,uint256,string)
+          handler: handleNewPost
+      file: ./src/bb-posts.ts
+  - kind: ethereum
+    name: BBTiers
+    network: matic
+    source:
+      address: "0xffec1c5b14808d56a894916a52da300d8ee77941"
+      abi: BBTiers
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - TierSet
+      abis:
+        - name: BBTiers
+          file: ./abis/BBTiers.json
+      eventHandlers:
+        - event: EditTierSet(uint256,uint256)
+          handler: handleEditTierSet
+        - event: NewTierSet(uint256,uint256)
+          handler: handleNewTierSet
+        - event: SupportedCurrencyAdded(uint256,uint256,address,uint256)
+          handler: handleSupportedCurrencyAdded
+        - event: SupportedCurrencyRemoved(uint256,uint256,address)
+          handler: handleSupportedCurrencyRemoved
+      file: ./src/bb-tiers.ts
+  - kind: ethereum
+    name: BBSubscriptionFactory
+    network: matic
+    source:
+      address: "0x5d2a904e7374cc3faa5658ecd462e370aa4637a6"
+      abi: BBSubscriptionFactory
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - SubscriptionProfile
+      abis:
+        - name: BBSubscriptionFactory
+          file: ./abis/BBSubscriptionFactory.json
+      eventHandlers:
+        - event: EditContribution(uint256,uint256)
+          handler: handleEditContribution
+        - event: NewSubscriptionProfile(uint256,uint256,uint256)
+          handler: handleNewSubscriptionProfile
+      file: ./src/bb-subscription-factory.ts
+  - kind: ethereum
+    name: BBSubscriptionsUSDC
+    network: matic
+    source:
+      address: "0x654b5903544e7c1af996b98cc38da1a37684a1ae"
+      abi: BBSubscriptionsUSDC
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - SubscriptionEntity
+      abis:
+        - name: BBSubscriptionsUSDC
+          file: ./abis/BBSubscriptionsUSDC.json
+      eventHandlers:
+        - event: Renewed(uint256)
+          handler: handleRenewed
+        - event: Subscribed(uint256)
+          handler: handleSubscribed
+        - event: Unsubscribed(uint256)
+          handler: handleUnsubscribed
+      file: ./src/bb-subscriptions.ts
+  - kind: ethereum
+    name: BBSubscriptionsUSDT
+    network: matic
+    source:
+      address: "0x495eb78a0b48077e0a097af07194636fc85dade4"
+      abi: BBSubscriptionsUSDC
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - SubscriptionEntity
+      abis:
+        - name: BBSubscriptionsUSDC
+          file: ./abis/BBSubscriptionsUSDC.json
+      eventHandlers:
+        - event: Renewed(uint256)
+          handler: handleRenewed
+        - event: Subscribed(uint256)
+          handler: handleSubscribed
+        - event: Unsubscribed(uint256)
+          handler: handleUnsubscribed
+      file: ./src/bb-subscriptions.ts
+  - kind: ethereum
+    name: BBSubscriptionsDAI
+    network: matic
+    source:
+      address: "0x628ae6f0f30f1cf9dfb287b03d011cf855818c47"
+      abi: BBSubscriptionsUSDC
+      startBlock: 37972470
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - SubscriptionEntity
+      abis:
+        - name: BBSubscriptionsUSDC
+          file: ./abis/BBSubscriptionsUSDC.json
+      eventHandlers:
+        - event: Renewed(uint256)
+          handler: handleRenewed
+        - event: Subscribed(uint256)
+          handler: handleSubscribed
+        - event: Unsubscribed(uint256)
+          handler: handleUnsubscribed
+      file: ./src/bb-subscriptions.ts
